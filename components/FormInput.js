@@ -1,6 +1,5 @@
 import { Button, FormGroup, Label, Input } from 'reactstrap';
 
-
 const FormInput = ({
   label,
   type,
