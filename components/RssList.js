@@ -5,8 +5,8 @@ import Map from '../components/Map';
 const makeListItem =(item, index, array) => {
               return (<article>
                       <h4>
-                        <a href="${item.querySelector("link").innerHTML}" target="_blank" rel="noopener">
-                          ${item.querySelector("title").innerHTML}
+                        <a href="${item.querySelector('link').innerHTML}" target="_blank" rel="noopener">
+                          {item.querySelector("title").innerHTML}
                         </a>
                       </h4>
                     </article>
@@ -36,8 +36,9 @@ class RssList extends React.Component {
                return (
                     <div>
 
-                       // <div dangerouslySetInnerHTML={{__html: this.state.pageOfItems.mymap(makeListItem)}} ></div>
+                       {
                        this.state.pageOfItems.mymap(makeListItem)
+                       }
                        <Pagination items={this.state.items} changePage={this.changePage} />
 
                     </div>         

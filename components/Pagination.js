@@ -5,18 +5,18 @@ const defaultProps = {
     startIndex: 1,
     pageSize: 5,
 }
-const makePager =(currentIndex, index, array) => {
-              return (<li key={index}>
-                        <a className="clickable" onClick={() => this.setCurrentItems(currentIndex)}> &nbsp;{currentIndex} | </a>
-                    </li>);
-}
+
 
 class Pagination extends React.Component {
     constructor(props) {
         super(props);
         this.state = { pager: {} };
         }
-
+    makePager =(currentIndex, index, array) => {
+                return (<li key={index}>
+                        <a className="clickable" onClick={() => this.setCurrentItems(currentIndex)}> &nbsp;{currentIndex} | </a>
+                    </li>);
+    }
     setCurrentItems(currentIndex) {
         var { items, pageSize } = this.props;
         var pager = this.state.pager;
@@ -68,12 +68,7 @@ class Pagination extends React.Component {
         return (
             <ul className="pagination">
                 {
-                    pager.pages.myMap(makePager)
-                    // pager.pages.map((currentIndex, index) =>
-                    // <li key={index}>
-                    //     <a className="clickable" onClick={() => this.setCurrentItems(currentIndex)}> &nbsp;{currentIndex} | </a>
-                    // </li>)
-
+                    pager.pages.mymap( this.makePager)
                 }
             </ul>
         );
