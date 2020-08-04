@@ -5,18 +5,16 @@ import FormInput from '../components/FormInput';
 import Pagination from '../components/Pagination';
 import RssList from '../components/RssList';
 
-const validateInputs = (values) => {
+const validateInput = (values) => {
     const errors = {};
-      Object.entries(values).forEach(([key, value])=>{
-      if(!values[key] ){
-      errors[key] = `Field ${key} is required!`
+      if(!values['url'] ){
+      errors['url'] = `Field URL is required!`
       }
-    });
     return errors;
 }
 
 
-const INITIAL_VALUES = { url: '', currentItems:[]};
+const INITIAL_VALUES = { url: ''};
 
 const changePage = function(currentItems) {
        INITIAL_VALUES['currentItems'] = currentItems;
@@ -35,7 +33,7 @@ constructor() {
 
               <Formik
                 initialValues = {INITIAL_VALUES}
-                validate = {validateInputs}
+                validate = {validateInput}
                 onSubmit = {(values, { setSubmitting }) => {
                   setTimeout(async () => {
                       const RSS_URL = values['url'];

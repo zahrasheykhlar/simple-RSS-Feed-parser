@@ -1,6 +1,6 @@
 import React from 'react';
 import Pagination from '../components/Pagination';
-import Map from '../components/Map';
+import '../components/CustomPrototypes';
 
 const makeListItem =(item, index, array) => {
               return (<article>

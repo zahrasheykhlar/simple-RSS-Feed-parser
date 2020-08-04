@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from '../components/Map';
+import '../components/CustomPrototypes';
 
 const defaultProps = {
     startIndex: 1,
@@ -18,7 +18,8 @@ class Pagination extends React.Component {
                         <a className="clickable" onClick={() => this.setCurrentItems(currentIndex)}> &nbsp;{currentIndex} | </a>
                     </li>);
     }
-    
+
+
     increase = (currentIndex, index, array) => {
                 return (index + 1)};
 
@@ -32,9 +33,8 @@ class Pagination extends React.Component {
         var endIndex = Math.min(startIndex + pageSize - 1, items.length - 1);
 
         var pages = [...Array(totalPages).keys()].mymap(this.increase);
-
        
-        var currentItems = items.slice(startIndex, endIndex + 1);
+        var currentItems = items.myslice(startIndex, endIndex + 1);
 
         this.setState({ pager: {
             startPage: 1,
