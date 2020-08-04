@@ -1,0 +1,18 @@
+@import './shared/fonts';
+
+//COMPONENTS
+@import './pagination';
+
+html, body {
+    height:100%;
+    width:100%;
+	font-family: 'Montserrat', 'Helvetica';
+}
+
+.clickable{
+	cursor: pointer;
+}
+.alert-danger{
+	margin: auto;
+	width: 50%
+}

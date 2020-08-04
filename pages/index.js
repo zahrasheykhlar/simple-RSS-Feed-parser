@@ -1,18 +1,18 @@
 import React from 'react';
 import RssFeedParserForm from '../components/RssFeedParserForm';
-//import List from 'react-list';
 
-
-import {Row, Col} from 'reactstrap';
+import { Container, Row, Col} from 'reactstrap';
 
 class Index extends React.Component {
   render() {
     return(
+    	<Container>
     		<Row>
-	    		<Col md="6">
+	    		<Col md="12">
 					<RssFeedParserForm />
 				</Col>
 			</Row>
+		</Container>
     	) 
   }
 }

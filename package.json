@@ -1,5 +1,5 @@
 {
-  "name": "SimpleRSSFeedParser",
+  "name": "simple-RSS-Feed-parser",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.5.0",
     "formik": "^2.1.5",
     "next": "^9.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "reactstrap": "^8.5.1"
+    "reactstrap": "^8.5.1",
+    "sass": "^1.26.10"
   }
 }
