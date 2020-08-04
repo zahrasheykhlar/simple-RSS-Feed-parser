@@ -1,8 +1,14 @@
 import React from 'react';
+import Map from '../components/Map';
 
 const defaultProps = {
     startIndex: 1,
     pageSize: 5,
+}
+const makePager =(currentIndex, index, array) => {
+              return (<li key={index}>
+                        <a className="clickable" onClick={() => this.setCurrentItems(currentIndex)}> &nbsp;{currentIndex} | </a>
+                    </li>);
 }
 
 class Pagination extends React.Component {
@@ -11,7 +17,7 @@ class Pagination extends React.Component {
         this.state = { pager: {} };
         }
 
-   setCurrentItems(currentIndex) {
+    setCurrentItems(currentIndex) {
         var { items, pageSize } = this.props;
         var pager = this.state.pager;
 
@@ -48,7 +54,7 @@ class Pagination extends React.Component {
             this.setCurrentItems(this.props.startIndex);
         }
     }
-    
+
     UNSAFE_componentWillMount() {
         if (this.props.items && this.props.items.length) {
             this.setCurrentItems(this.props.startIndex);
@@ -61,13 +67,14 @@ class Pagination extends React.Component {
         console.log("pager ==>>>>", pager);
         return (
             <ul className="pagination">
-              
-                {pager.pages.map((currentIndex, index) =>
-                    <li key={index}>
-                        <a className="clickable" onClick={() => this.setCurrentItems(currentIndex)}> &nbsp;{currentIndex} | </a>
-                    </li>
-                )}
-        
+                {
+                    pager.pages.myMap(makePager)
+                    // pager.pages.map((currentIndex, index) =>
+                    // <li key={index}>
+                    //     <a className="clickable" onClick={() => this.setCurrentItems(currentIndex)}> &nbsp;{currentIndex} | </a>
+                    // </li>)
+
+                }
             </ul>
         );
     }

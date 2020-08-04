@@ -39,8 +39,6 @@ constructor() {
                 onSubmit = {(values, { setSubmitting }) => {
                   setTimeout(async () => {
                       const RSS_URL = values['url'];
-                      //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-                      //fetch(proxyurl +RSS_URL)
                       fetch(RSS_URL)
                         .then(response => response.text())
                         .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
