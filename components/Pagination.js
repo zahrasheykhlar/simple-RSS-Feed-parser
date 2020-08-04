@@ -4,6 +4,7 @@ import Map from '../components/Map';
 const defaultProps = {
     startIndex: 1,
     pageSize: 5,
+
 }
 
 
@@ -17,26 +18,27 @@ class Pagination extends React.Component {
                         <a className="clickable" onClick={() => this.setCurrentItems(currentIndex)}> &nbsp;{currentIndex} | </a>
                     </li>);
     }
+    
+    increase = (currentIndex, index, array) => {
+                return (index + 1)};
+
     setCurrentItems(currentIndex) {
         var { items, pageSize } = this.props;
         var pager = this.state.pager;
 
         var totalPages = Math.ceil(items.length / pageSize);
-     
-        var startPage = 1;
-        var endPage = totalPages;
-        
+           
         var startIndex = (currentIndex - 1) * pageSize;
         var endIndex = Math.min(startIndex + pageSize - 1, items.length - 1);
 
-        var pages = [...Array((endPage + 1) - startPage).keys()].map(i => startPage + i);
+        var pages = [...Array(totalPages).keys()].mymap(this.increase);
 
        
         var currentItems = items.slice(startIndex, endIndex + 1);
 
         this.setState({ pager: {
-            startPage: startPage,
-            endPage: endPage,
+            startPage: 1,
+            endPage: totalPages,
             totalItems: items.length,
             currentIndex: currentIndex,
             pageSize: pageSize,
