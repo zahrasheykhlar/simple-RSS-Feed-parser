@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 const makeListItem = (item) => {
   return (<article>
     <h4>
-      <a href="${item.querySelector('link').innerHTML}" target="_blank" rel="noopener">
+      <a href="{item.querySelector('link').innerHTML}" target='_blank'>
         {item.querySelector('title').innerHTML}
       </a>
     </h4>

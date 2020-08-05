@@ -33,8 +33,7 @@ class RssFeedParserForm extends React.Component {
           validate={validateInput}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(async () => {
-              const RSS_URL = values.url
-              fetch(RSS_URL)
+              fetch(values.url)
                 .then(response => response.text())
                 .then(str => new window.DOMParser().parseFromString(str, 'text/xml'))
                 .then(data => {
@@ -42,11 +41,9 @@ class RssFeedParserForm extends React.Component {
 
                   this.setState({ RssItems: items, isSubmited: true })
                 }).catch(() => {
-                  const errorMessage = '<div class="alert alert-danger" role="alert">Can’t access " {RSS_URL} " response. Blocked by browser?</div>'
+                  const errorMessage = '<div class="alert alert-danger" role="alert">Can’t access URl response. Blocked by browser?</div>'
                   document.body.insertAdjacentHTML('beforeend', errorMessage)
-                }
-
-                )
+                })
 
               setSubmitting(false)
             }, 400)
