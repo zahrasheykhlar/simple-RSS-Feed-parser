@@ -1,49 +1,50 @@
-import React from 'react';
-import Pagination from '../components/Pagination';
-import '../components/CustomPrototypes';
+import React from 'react'
+import Pagination from '../components/Pagination'
+import '../components/CustomPrototypes'
+import PropTypes from 'prop-types'
 
-const makeListItem =(item, index, array) => {
-              return (<article>
-                      <h4>
-                        <a href="${item.querySelector('link').innerHTML}" target="_blank" rel="noopener">
-                          {item.querySelector("title").innerHTML}
-                        </a>
-                      </h4>
-                    </article>
-                  );
+const makeListItem = (item) => {
+  return (<article>
+    <h4>
+      <a href="${item.querySelector('link').innerHTML}" target="_blank" rel="noopener">
+        {item.querySelector('title').innerHTML}
+      </a>
+    </h4>
+  </article>
+  )
 }
 
 class RssList extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor (props) {
+    super(props)
 
-        var items = this.props.items;
-       
-        this.state = {
-            items: items,
-            pageOfItems: []
-        };
+    var items = this.props.items
 
-        this.changePage = this.changePage.bind(this);
+    this.state = {
+      items: items,
+      pageOfItems: []
     }
 
-    changePage(pageOfItems) {
-        // update state with new page of items
-        this.setState({ pageOfItems: pageOfItems });
-    }
+    this.changePage = this.changePage.bind(this)
+  }
 
-    render() {
-               return (
-                    <div>
+  changePage (pageOfItems) {
+    this.setState({ pageOfItems: pageOfItems })
+  }
 
-                       {
-                       this.state.pageOfItems.mymap(makeListItem)
-                       }
-                       <Pagination items={this.state.items} changePage={this.changePage} />
-
-                    </div>         
-            );
-    }
+  render () {
+    return (
+      <div>
+        {
+          this.state.pageOfItems.mymap(makeListItem)
+        }
+        <Pagination items={this.state.items} changePage={this.changePage} />
+      </div>
+    )
+  }
 }
 
-export default RssList;
+RssList.propTypes = {
+  items: PropTypes.Array
+}
+export default RssList

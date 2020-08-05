@@ -1,4 +1,6 @@
-import { Button, FormGroup, Label, Input } from 'reactstrap';
+import React from 'react'
+import { FormGroup, Label, Input } from 'reactstrap'
+import PropTypes from 'prop-types'
 
 const FormInput = ({
   label,
@@ -13,6 +15,13 @@ const FormInput = ({
     {touched[field.name] &&
       errors[field.name] && <div className="error">{errors[field.name]}</div>}
   </FormGroup>
-);
+)
 
-export default FormInput;
+FormInput.propTypes = {
+  label: PropTypes.any,
+  type: PropTypes.any,
+  field: PropTypes.any,
+  form: PropTypes.any
+}
+
+export default FormInput
